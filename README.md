@@ -21,4 +21,5 @@ To thoroughly explore the data analyst job market, I relied on several essential
 * ### Github
 
 # The Analysis
+## 1. Top paying Data Analyst jobs
 
