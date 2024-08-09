@@ -15,10 +15,10 @@ What are the most essential skills to learn?
 
 # Tools Utilized
 To thoroughly explore the data analyst job market, I relied on several essential tools:
-* ## SQL
-* ## PostgreSQL
-* ## Visual Studio Code
-* ## Github
+* ### SQL
+* ### PostgreSQL
+* ### Visual Studio Code
+* ### Github
 
 # The Analysis
 
