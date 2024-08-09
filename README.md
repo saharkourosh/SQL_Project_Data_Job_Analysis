@@ -23,6 +23,7 @@ To thoroughly explore the data analyst job market, I relied on several essential
 # The Analysis
 ## 1. Top paying Data Analyst jobs
 
+```sql
 SELECT
     job_id,
     job_title,
