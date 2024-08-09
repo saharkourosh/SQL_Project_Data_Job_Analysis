@@ -63,7 +63,7 @@ LIMIT 10
 
 ## 2. Skills for Top Paying Jobs
 To understand what skills are required for the top-paying jobs, I joined the job postings with the skills data, providing insights into what employers value for high-compensation roles.
-'''sql
+```sql
 WITH top_paaying_jobs AS(
     SELECT
         job_id,
@@ -81,4 +81,4 @@ WITH top_paaying_jobs AS(
         salary_year_avg DESC
     LIMIT 10
 )
-'''
+```
