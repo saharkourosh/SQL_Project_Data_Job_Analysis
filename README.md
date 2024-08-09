@@ -59,4 +59,4 @@ LIMIT 10
 - Companies like **Meta** and **AT&T**, which are known for their large-scale operations, offer strong average salaries, reflecting their ability to compensate top talent in the field.
 - **Mantys** stands out with a remarkably high average salary, which might be indicative of either a high-demand, specialized role or an outlier in the dataset.
 
-![Top Paying Roles]()
+![Top Paying Roles](im1.png)
