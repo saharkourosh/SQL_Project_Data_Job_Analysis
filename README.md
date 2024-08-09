@@ -60,3 +60,6 @@ LIMIT 10
 - **Mantys** stands out with a remarkably high average salary, which might be indicative of either a high-demand, specialized role or an outlier in the dataset.
 
 ![Top Paying Roles](im1.png)
+
+## 2. Skills for Top Paying Jobs
+To understand what skills are required for the top-paying jobs, I joined the job postings with the skills data, providing insights into what employers value for high-compensation roles.
