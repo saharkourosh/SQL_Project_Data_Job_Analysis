@@ -47,11 +47,16 @@ LIMIT 10
 ```
 ## Insights on the Top 10 Paying Data Analyst Jobs in 2023
 
-### 1. Top Paying Companies
+### 1. Top Paying Companies:
 
 - **Mantys** leads with an impressive average salary of $650,000 for data analyst positions.
 - **Meta** follows with an average salary of $336,500.
 - Other notable companies include AT&T with $255,829.5, Pinterest Job Advertisements with $232,423, and Uclahealthcareers offering $217,000.
-
+### 2. Salary Distribution:
+- The average salaries among the top companies vary significantly, from $184,000 at Get It Recruit - Information Technology to $650,000 at Mantys.
+- The distribution shows a steep decline from the highest-paying company, suggesting that only a few companies offer exceptionally high salaries, while others are relatively lower but still competitive.
+### 3. Notable Trends:
+- Companies like **Meta** and **AT&T**, which are known for their large-scale operations, offer strong average salaries, reflecting their ability to compensate top talent in the field.
+- **Mantys** stands out with a remarkably high average salary, which might be indicative of either a high-demand, specialized role or an outlier in the dataset.
 
 ![Top Paying Roles]()
