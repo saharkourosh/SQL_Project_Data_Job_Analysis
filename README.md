@@ -150,3 +150,13 @@ The top five skills cover a broad spectrum, from database management (SQL) and d
 
 ### Overall Insight:
 The data reveals that employers prioritize a combination of traditional and modern tools, with SQL and Excel as foundational skills, while Python and visualization tools like Tableau and Power BI are increasingly essential for more advanced data analysis tasks.
+
+Here is the table showing the demand for the top 5 skills in data analyst job postings:
+
+| **Skill**   | **Demand Count** |
+|-------------|------------------|
+| SQL         | 92,628           |
+| Excel       | 67,031           |
+| Python      | 57,326           |
+| Tableau     | 46,554           |
+| Power BI    | 39,468           |
