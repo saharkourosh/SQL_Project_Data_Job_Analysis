@@ -160,3 +160,188 @@ Here is the table showing the demand for the top 5 skills in data analyst job po
 | Python      | 57,326           |
 | Tableau     | 46,554           |
 | Power BI    | 39,468           |
+
+4. ## Skills and Salary Analysis
+Examining the average salaries tied to various skills highlighted which ones offer the highest pay.
+
+```sql
+SELECT 
+    skills,
+    ROUND(AVG(salary_year_avg), 0) AS average_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short='Data Analyst' AND
+    salary_year_avg IS NOT NULL
+GROUP BY
+    skills
+ORDER BY
+    average_salary DESC
+LIMIT 25
+```
+### Insights on the Top 25 Highest-Paying Skills:
+
+1. **High-Value Niche Skills**:
+   - **SVN (Subversion)** stands out with an exceptionally high average salary of **$400,000**. This suggests that expertise in SVN, though less commonly mentioned compared to other version control systems, is highly valued, possibly due to its use in specialized or legacy systems.
+
+2. **Blockchain and Emerging Technologies**:
+   - **Solidity**, a programming language for smart contracts on blockchain platforms, ranks second with an average salary of **$179,000**. This indicates the lucrative opportunities available in blockchain and decentralized technologies.
+
+3. **Specialized Databases and Tools**:
+   - **Couchbase** (**$160,515**), a NoSQL database, and **DataRobot** (**$155,486**), an automated machine learning platform, also command high salaries. These tools cater to specialized needs, such as big data management and AI-driven analytics, reflecting their importance in advanced data projects.
+
+4. **Programming Languages and Frameworks**:
+   - **Golang (Go)**, with an average salary of **$155,000**, is the highest-paying programming language on this list, highlighting its demand for building high-performance, scalable applications.
+   - Other machine learning frameworks like **MXNet** (**$149,000**), **Keras** (**$127,013**), **PyTorch** (**$125,226**), and **TensorFlow** (**$120,647**) are also highly paid, showing the value of deep learning and AI skills.
+
+5. **DevOps and Cloud Tools**:
+   - Tools like **VMware** (**$147,500**), **Terraform** (**$146,734**), **GitLab** (**$134,126**), **Ansible** (**$124,370**), and **Puppet** (**$129,820**) are associated with high salaries, reflecting the growing importance of DevOps practices in modern IT environments.
+   - The presence of cloud infrastructure tools such as **Terraform** and **VMware** further emphasizes the high value placed on skills related to cloud computing and infrastructure as code.
+
+6. **AI and ML Platforms**:
+   - AI and machine learning skills are consistently well-compensated, with tools like **Hugging Face** (**$123,950**) and **Airflow** (**$116,387**) also appearing on the list, indicating the premium placed on AI-driven solutions and orchestration tools.
+
+7. **Legacy and Versatile Tools**:
+   - **Perl** (**$124,686**) and **Scala** (**$115,480**) show that even older or less mainstream programming languages can command high salaries, especially when they are integral to specific projects or industries.
+
+### Overall Insight:
+The data suggests that niche, specialized, and emerging technologies tend to command the highest salaries. Skills in blockchain, advanced data management, AI/ML frameworks, and DevOps tools are particularly lucrative, indicating that professionals with expertise in these areas are in high demand. Additionally, the presence of both legacy and cutting-edge technologies on this list highlights the value of both deep specialization and versatility in the tech industry.
+
+Here is the table showing the average salary for the top 25 highest-paying skills for data analysts:
+
+| **Skill**       | **Average Salary** |
+|-----------------|--------------------|
+| SVN             | $400,000           |
+| Solidity        | $179,000           |
+| Couchbase       | $160,515           |
+| DataRobot       | $155,486           |
+| Golang          | $155,000           |
+| MXNet           | $149,000           |
+| dplyr           | $147,633           |
+| VMware          | $147,500           |
+| Terraform       | $146,734           |
+| Twilio          | $138,500           |
+| GitLab          | $134,126           |
+| Kafka           | $129,999           |
+| Puppet          | $129,820           |
+| Keras           | $127,013           |
+| PyTorch         | $125,226           |
+| Perl            | $124,686           |
+| Ansible         | $124,370           |
+| Hugging Face    | $123,950           |
+| TensorFlow      | $120,647           |
+| Cassandra       | $118,407           |
+| Notion          | $118,092           |
+| Atlassian       | $117,966           |
+| Bitbucket       | $116,712           |
+| Airflow         | $116,387           |
+| Scala           | $115,480           |
+
+5. ## Ideal Skills for Learning
+This analysis combines insights from demand and salary data to pinpoint skills that are both in high demand and well-compensated, offering a strategic guide for skill development.
+```sql
+WITH skill_demand AS (
+    SELECT 
+        skills_dim.skill_id,
+        skills_dim.skills,
+        COUNT(skills_job_dim.job_id) AS demand_count
+    FROM job_postings_fact
+    INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+    INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+    WHERE
+        job_title_short='Data Analyst' AND
+        job_work_from_home = TRUE AND
+        salary_year_avg IS NOT NULL
+    GROUP BY
+        skills_dim.skill_id
+), average_salary AS(
+SELECT 
+    skills_job_dim.skill_id,
+    ROUND(AVG(salary_year_avg), 0) AS average_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short='Data Analyst' AND
+    salary_year_avg IS NOT NULL AND
+    job_work_from_home = TRUE
+GROUP BY
+    Skills_job_dim.skill_id
+)
+
+SELECT
+    skill_demand.skill_id,
+    skill_demand.skills,
+    demand_count,
+    average_salary
+FROM skill_demand
+INNER JOIN average_salary ON skill_demand.skill_id=average_salary.skill_id
+WHERE
+    demand_count>10
+ORDER BY 
+    average_salary DESC,
+    demand_count DESC
+LIMIT 25
+```
+Here's a formatted version of the data you provided:
+
+| skill_id | skills      | demand_count | average_salary |
+|----------|-------------|--------------|----------------|
+| 8        | go          | 27           | 115,320        |
+| 234      | confluence  | 11           | 114,210        |
+| 97       | hadoop      | 22           | 113,193        |
+| 80       | snowflake   | 37           | 112,948        |
+| 74       | azure       | 34           | 111,225        |
+| 77       | bigquery    | 13           | 109,654        |
+| 76       | aws         | 32           | 108,317        |
+| 4        | java        | 17           | 106,906        |
+| 194      | ssis        | 12           | 106,683        |
+| 233      | jira        | 20           | 104,918        |
+| 79       | oracle      | 37           | 104,534        |
+| 185      | looker      | 49           | 103,795        |
+| 2        | nosql       | 13           | 101,414        |
+| 1        | python      | 236          | 101,397        |
+| 5        | r           | 148          | 100,499        |
+| 78       | redshift    | 16           | 99,936         |
+| 187      | qlik        | 13           | 99,631         |
+| 182      | tableau     | 230          | 99,288         |
+| 197      | ssrs        | 14           | 99,171         |
+| 92       | spark       | 13           | 99,077         |
+| 13       | c++         | 11           | 98,958         |
+| 186      | sas         | 63           | 98,902         |
+| 7        | sas         | 63           | 98,902         |
+| 61       | sql server  | 35           | 97,786         |
+| 9        | javascript  | 20           | 97,587         |
+
+This table lists various skills, their corresponding demand counts, and average salaries.
+
+### Insights on the Optimal Skills:
+
+### 1. **High-Demand Skills with Competitive Salaries**:
+   - **Python** (236 demand count, $101,397 average salary): Python stands out as the most demanded skill, making it essential for data analysts aiming for broad market applicability.
+   - **Tableau** (230 demand count, $99,288 average salary): Similar to Python, Tableau is highly demanded, emphasizing the importance of data visualization skills in the industry.
+   - **R** (148 demand count, $100,499 average salary): R is another key programming language in demand, particularly in statistical analysis and data science.
+
+### 2. **High-Paying Skills**:
+   - **Go** ($115,320 average salary, 27 demand count): Go offers the highest average salary among the listed skills, though it has moderate demand. It may represent niche but lucrative opportunities.
+   - **Confluence** ($114,210 average salary, 11 demand count): While Confluence is not in high demand, it commands a high average salary, indicating specialized roles that require this skill.
+   - **Hadoop** ($113,193 average salary, 22 demand count): Hadoop is well-compensated and remains important for big data processing.
+
+### 3. **Balanced Skills (High Demand and High Salary)**:
+   - **Snowflake** ($112,948 average salary, 37 demand count): Snowflake combines a solid salary with decent demand, making it a valuable skill for data analysts focused on cloud data warehousing.
+   - **Azure** ($111,225 average salary, 34 demand count) and **AWS** ($108,317 average salary, 32 demand count): Both cloud computing platforms are in demand and offer competitive salaries, indicating the growing importance of cloud services in data analytics.
+
+### 4. **Moderate Demand with Competitive Salaries**:
+   - **Looker** ($103,795 average salary, 49 demand count): Looker is in moderately high demand and offers a good salary, suggesting it's a valuable tool for data visualization and analytics.
+   - **SQL Server** ($97,786 average salary, 35 demand count): SQL Server is a staple in data management, with consistent demand and a solid salary.
+
+### 5. **Emerging and Niche Skills**:
+   - **BigQuery** (13 demand count, $109,654 average salary): Though not as widely demanded, BigQuery’s salary suggests it is valued in specific roles, likely related to cloud-based data analysis.
+
+### **Strategic Takeaways**:
+- **Focus on Learning Python, Tableau, and R**: These skills are in high demand and also offer decent salaries, making them essential for most data analyst roles.
+- **Specialize in Go, Confluence, or Snowflake**: These skills might lead to higher-paying positions, particularly in specialized or niche roles.
+- **Develop Cloud Skills**: Azure and AWS, with their high demand and salary potential, indicate that cloud computing skills are becoming increasingly crucial in the data analytics field.
+
+Overall, a strategic combination of mastering in-demand tools like Python and Tableau, along with specialized skills like Snowflake or Go, can lead to lucrative career opportunities in data analytics.
