@@ -82,7 +82,7 @@ WITH top_paaying_jobs AS(
     LIMIT 10
 )
 ```
-## Insights from the Analysis of the tOP 10 Skills for Data Analyst jobs:
+## Insights on most demanded skills for the top 10 highest paying data analyst jobs in 2023
 
 1. **Top Skills**:
    - **SQL** is the most frequently mentioned skill, appearing 8 times in the dataset. This indicates a high demand or prevalence of SQL skills for the job positions in this dataset.
