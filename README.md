@@ -139,14 +139,14 @@ SQL is the most sought-after skill, with 92,628 job postings mentioning it. This
 2. **Excel Remains Vital:**
 Despite the rise of more advanced tools, Excel still appears in 67,031 job postings, making it the second most demanded skill. This reflects Excel's continued relevance in data analysis for tasks like data manipulation, reporting, and visualization.
 
-3.**Python's Growing Popularity:**
+3. **Python's Growing Popularity:**
 Python is mentioned in 57,326 job postings, ranking third. Its high demand highlights its versatility in data analysis, including data wrangling, statistical analysis, and machine learning.
 
-4.**Visualization Tools are Key:**
+4. **Visualization Tools are Key:**
 Both Tableau and Power BI are highly demanded, with 46,554 and 39,468 mentions, respectively. This indicates that data visualization and dashboard creation are crucial skills for data analysts, allowing them to present data insights effectively.
 
-5.**Versatility and Diverse Skillset:**
+5. **Versatility and Diverse Skillset:**
 The top five skills cover a broad spectrum, from database management (SQL) and data manipulation (Excel) to programming (Python) and data visualization (Tableau, Power BI). This suggests that data analysts need a well-rounded skill set that includes technical, analytical, and presentation capabilities to meet the demands of the job market.
 
-###Overall Insight:
+### Overall Insight:
 The data reveals that employers prioritize a combination of traditional and modern tools, with SQL and Excel as foundational skills, while Python and visualization tools like Tableau and Power BI are increasingly essential for more advanced data analysis tasks.
